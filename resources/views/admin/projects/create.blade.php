@@ -60,6 +60,19 @@
                 @enderror
             </div>
 
+            <div class="mb-3">
+                <label for="type">type</label>
+                <select name="type" id="type">
+                    <option value="">scegli i tipi</option>
+                    @foreach($types as $type)
+                        <option value="{{$type->id}}" {{old('type_id') == $type->id ? 'selezionato' : ''}}>{{$type->name}}</option>
+                    @endforeach
+                </select>
+                @error('type')
+                    <div class="invalid-feedback">{{ $message }}</div>
+                @enderror
+            </div>
+
             <div>
                 <button type="submit" class="btn">Invia</button>
                 <button type="reset" class="btn">Reset</button>

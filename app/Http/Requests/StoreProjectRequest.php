@@ -30,6 +30,7 @@ class StoreProjectRequest extends FormRequest
             'completion_date'=>['nullable', 'date'],
             'image'=>['nullable', 'image', 'mimes:jpeg,png,gif,bmp,svg', 'max:255'],
             'project_status'=>['required'],
+            'type_id'=>['nullable'],
         ];
     }
 

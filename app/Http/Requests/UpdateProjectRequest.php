@@ -31,6 +31,8 @@ class UpdateProjectRequest extends FormRequest
             'image.mimes'=>'image must be a image (.jpeg, png, .gif, .bmp, .svg)',
             'image.max'=>'image a maximum :max characters',
             'project_status'=>['required'],
+            'type_id'=>['nullable'],
+
         ];
     }
 

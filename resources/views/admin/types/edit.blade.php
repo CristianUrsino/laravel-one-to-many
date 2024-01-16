@@ -3,7 +3,7 @@
     <section class="container">
        <h1>edit {{$type->title}}</h1>
 
-       <form action="{{route('admin.types.update', $type->id)}}" method="POST">
+       <form action="{{route('admin.types.update', $type->slug)}}" method="POST">
             @method('PUT')
             @csrf
 
