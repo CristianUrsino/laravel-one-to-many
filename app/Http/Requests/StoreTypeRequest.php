@@ -3,6 +3,7 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Validation\Rule;
 
 class StoreTypeRequest extends FormRequest
 {
@@ -11,7 +12,7 @@ class StoreTypeRequest extends FormRequest
      */
     public function authorize(): bool
     {
-        return false;
+        return true;
     }
 
     /**
@@ -22,7 +23,14 @@ class StoreTypeRequest extends FormRequest
     public function rules(): array
     {
         return [
-            //
+            'name'=>['required','max:255', Rule::unique('types')],
+        ];
+    }
+    public function messages(){
+        return [
+            'name.required' => 'mandatory "name"',
+            'name.max' => 'name a maximum :max characters',
+            'name.unique' => ' name already exists',
         ];
     }
 }
