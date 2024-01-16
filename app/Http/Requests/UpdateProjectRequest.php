@@ -27,6 +27,9 @@ class UpdateProjectRequest extends FormRequest
             'description'=>['required', 'min:3', 'max:65535'],
             'repository_link'=>['required', 'url','min:3', Rule::unique('projects')->ignore($this->project)],
             'completion_date'=>['nullable', 'date'],
+            'image'=>['nullable', 'image', 'mimes:jpeg,png,gif,bmp,svg', 'max:255'],
+            'image.mimes'=>'image must be a image (.jpeg, png, .gif, .bmp, .svg)',
+            'image.max'=>'image a maximum :max characters',
             'project_status'=>['required'],
         ];
     }
