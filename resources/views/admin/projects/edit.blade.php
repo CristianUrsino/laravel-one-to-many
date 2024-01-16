@@ -62,10 +62,10 @@
 
             <div class="mb-3">
                 <label for="type">type</label>
-                <select name="type" id="type">
+                <select name="type_id" id="type_id">
                     <option value="">scegli i tipi</option>
                     @foreach($types as $type)
-                        <option value="{{$type->id}}" {{old('type_id'. $project->type_id) == $type->id ? 'selezionato' : ''}}>{{$type->name}}</option>
+                        <option value="{{$type->id}}" {{old('type_id'. $project->type_id) == $type->id ? 'selected' : ''}}>{{$type->name}}</option>
                     @endforeach
                 </select>
                 @error('type')
