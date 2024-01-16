@@ -23,6 +23,7 @@ class ProjectSeeder extends Seeder
             $newProject->repository_link = $project['repository_link'];
             $newProject->completion_date = $project['completion_date'];
             $newProject->project_status = $project['project_status'];
+            $newProject->user_id = 1;
             $newProject->save();
         }
 

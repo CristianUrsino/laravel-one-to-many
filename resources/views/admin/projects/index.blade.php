@@ -13,8 +13,8 @@
     </div>
     @foreach ($projects as $project)
         <div class="my-3">
-            <a href="{{route('admin.projects.show',$project->id)}}">{{$project->name}}</a>
-            <a href="{{route('admin.projects.edit', $project->id)}}" class="ms-3">edit</a>
+            <a href="{{route('admin.projects.show',$project)}}">{{$project->name}}</a>
+            <a href="{{route('admin.projects.edit', $project)}}" class="ms-3">edit</a>
             <form action="{{route('admin.projects.destroy', $project->id)}}" method="POST">
             @method('DELETE')
             @csrf

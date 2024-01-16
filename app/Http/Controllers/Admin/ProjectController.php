@@ -7,6 +7,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Project;
 use App\Http\Requests\StoreProjectRequest;
 use App\Http\Requests\UpdateProjectRequest;
+use Illuminate\Support\Facades\Auth;
 
 use Illuminate\Support\Facades\Storage;
 
@@ -40,10 +41,10 @@ class ProjectController extends Controller
             $image = Storage::put('image', $formData['image']); 
             $formData['image'] = $image;
         }
-
-        // dd($formData);
+        $userId = Auth::id();
+        $formData['user_id'] = $userId;
         $project = Project::create($formData);
-        return redirect()->route('admin.projects.show', $project->id);
+        return redirect()->route('admin.projects.show', $project);
     }
 
     /**
@@ -71,7 +72,7 @@ class ProjectController extends Controller
         // dd($formData);
         $project = Project::find($project->id);
         $project->update($formData);    
-        return redirect()->route('admin.projects.show', $project->id);
+        return redirect()->route('admin.projects.show', $project);
     }
 
     /**

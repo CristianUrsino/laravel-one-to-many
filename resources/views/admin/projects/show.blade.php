@@ -4,5 +4,5 @@
     <div>
         {{$project->description}}
     </div>
-    <div><img src="{{asset('storage/'.$project->image)}}" alt="image of {{$project->title}}"></div>
+    <div><img src="{{asset('storage/'.$project->image)}}" alt="image of {{$project->name}}"></div>
 @endsection
